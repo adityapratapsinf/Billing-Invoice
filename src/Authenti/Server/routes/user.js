@@ -7,10 +7,10 @@ import cors from 'cors';
 const router = express.Router();
 app.use(cors({
   origin: 'https://billing-invoice.vercel.app', // Your frontend domain
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
-
   router.post('/signup', async (req, res) => {
     console.log("fuck")
     const { name,email, password } = req.body;
