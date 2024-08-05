@@ -2,8 +2,14 @@ import express from 'express';
 import { SECRET, authenticateJwt } from "../middleware/auth.js";
 import { User ,Form} from "../db/index.js";
 import jwt from 'jsonwebtoken';
+import cors from 'cors';
 
 const router = express.Router();
+app.use(cors({
+  origin: 'https://billing-invoice.vercel.app', // Your frontend domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
   router.post('/signup', async (req, res) => {
     console.log("fuck")
